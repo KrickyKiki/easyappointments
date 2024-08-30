@@ -96,6 +96,7 @@ class Installation extends EA_Controller
                 'name' => 'Service',
                 'duration' => '30',
                 'price' => '0',
+                'book_advance_timeout' => '30',
                 'currency' => '',
                 'availabilities_type' => 'flexible',
                 'attendants_number' => '1',

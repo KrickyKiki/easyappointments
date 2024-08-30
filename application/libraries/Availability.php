@@ -74,7 +74,7 @@ class Availability
             $available_hours = $this->generate_available_hours($date, $service, $available_periods);
         }
 
-        $available_hours = $this->consider_book_advance_timeout($date, $available_hours, $provider);
+        $available_hours = $this->consider_book_advance_timeout($date, $available_hours, $provider, $service);
 
         return $this->consider_future_booking_limit($date, $available_hours, $provider);
     }
@@ -586,11 +586,11 @@ class Availability
      *
      * @throws Exception
      */
-    protected function consider_book_advance_timeout(string $date, array $available_hours, array $provider): array
+    protected function consider_book_advance_timeout(string $date, array $available_hours, array $provider, array $service): array
     {
         $provider_timezone = new DateTimeZone($provider['timezone']);
 
-        $book_advance_timeout = setting('book_advance_timeout');
+        $book_advance_timeout = max($service['book_advance_timeout'], (int) setting('book_advance_timeout'));
 
         $threshold = new DateTime('+' . $book_advance_timeout . ' minutes', $provider_timezone);
 

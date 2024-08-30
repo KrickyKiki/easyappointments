@@ -22,7 +22,7 @@ $protocol =
         ? 'https://'
         : 'http://';
 
-$domain = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$domain = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'] ?? 'localhost';
 
 $request_uri = dirname($_SERVER['SCRIPT_NAME']);
 

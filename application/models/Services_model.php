@@ -26,6 +26,7 @@ class Services_model extends EA_Model
     protected array $casts = [
         'id' => 'integer',
         'price' => 'float',
+        'book_advance_timeout' => 'integer',
         'attendants_number' => 'integer',
         'is_private' => 'boolean',
         'id_service_categories' => 'integer',
@@ -39,6 +40,7 @@ class Services_model extends EA_Model
         'name' => 'name',
         'duration' => 'duration',
         'price' => 'price',
+        'book_advance_timeout' => 'book_advance_timeout',
         'currency' => 'currency',
         'description' => 'description',
         'location' => 'location',
@@ -149,6 +151,14 @@ class Services_model extends EA_Model
                 'The provided attendants number is invalid: ' . $service['attendants_number'],
             );
         }
+        
+        // Validate book advance timeout value.
+        if (empty($service['book_advance_timeout']) || (int) $service['book_advance_timeout'] < 15) {
+            throw new InvalidArgumentException(
+                'The provided advance timeout number is invalid: ' . $service['book_advance_timeout'],
+            );
+        }
+
     }
 
     /**
@@ -412,6 +422,7 @@ class Services_model extends EA_Model
             'name' => $service['name'],
             'duration' => (int) $service['duration'],
             'price' => (float) $service['price'],
+            'book_advance_timeout' => (int) $service['book_advance_timeout'],
             'currency' => $service['currency'],
             'description' => $service['description'],
             'location' => $service['location'],
@@ -449,6 +460,10 @@ class Services_model extends EA_Model
 
         if (array_key_exists('price', $service)) {
             $decoded_resource['price'] = $service['price'];
+        }
+
+        if (array_key_exists('book_advance_timeout', $service)) {
+            $decoded_resource['book_advance_timeout'] = $service['book_advance_timeout'];
         }
 
         if (array_key_exists('currency', $service)) {

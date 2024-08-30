@@ -212,6 +212,7 @@ class Booking extends EA_Controller
             $start_datetime = strtotime($results[0]['start_datetime']);
 
             $limit = strtotime('+' . $book_advance_timeout . ' minutes', strtotime('now'));
+            // TODO handle service-specific booking advance timeout
 
             if ($start_datetime < $limit) {
                 $hours = floor($book_advance_timeout / 60);

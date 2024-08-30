@@ -25,6 +25,7 @@ class Services extends EA_Controller
         'name',
         'duration',
         'price',
+        'book_advance_timeout',
         'currency',
         'description',
         'color',

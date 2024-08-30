@@ -82,6 +82,24 @@
                        disabled>
             </div>
 
+            <h5 class="text-black-50 mb-3 fw-light"><?= lang(
+                'allow_rescheduling_cancellation_before',
+            ) ?></h5>
+            
+            <div class="mb-3">
+                <label class="form-label" for="book-advance-timeout">
+                    <?= lang('timeout_minutes') ?>
+                    <span class="text-danger" hidden>*</span>
+                </label>
+                <input id="book-advance-timeout" class="form-control required" type="number" min="15"
+                       disabled>
+                <div class="form-text text-muted">
+                    <small>
+                        <?= lang('book_advance_timeout_hint') ?>
+                    </small>
+                </div>
+            </div>
+
             <div class="mb-3">
                 <label class="form-label" for="price">
                     <?= lang('price') ?>

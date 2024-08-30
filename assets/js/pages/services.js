@@ -20,6 +20,7 @@ App.Pages.Services = (function () {
     const $name = $('#name');
     const $duration = $('#duration');
     const $price = $('#price');
+    const $bookAdvanceTimeout = $('#book-advance-timeout');
     const $currency = $('#currency');
     const $serviceCategoryId = $('#service-category-id');
     const $availabilitiesType = $('#availabilities-type');
@@ -106,6 +107,7 @@ App.Pages.Services = (function () {
             $name.val('Service');
             $duration.val('30');
             $price.val('0');
+            $bookAdvanceTimeout.val('30');
             $currency.val('');
             $serviceCategoryId.val('');
             $availabilitiesType.val('flexible');
@@ -135,6 +137,7 @@ App.Pages.Services = (function () {
                 name: $name.val(),
                 duration: $duration.val(),
                 price: $price.val(),
+                book_advance_timeout: $bookAdvanceTimeout.val(),
                 currency: $currency.val(),
                 description: $description.val(),
                 location: $location.val(),
@@ -292,6 +295,7 @@ App.Pages.Services = (function () {
         $name.val(service.name);
         $duration.val(service.duration);
         $price.val(service.price);
+        $bookAdvanceTimeout.val(service.book_advance_timeout);
         $currency.val(service.currency);
         $description.val(service.description);
         $location.val(service.location);
