@@ -62,6 +62,7 @@
   "scripts": {
     "start": "npx gulp",
     "build": "npx gulp build",
-    "docs": "npx gulp docs"
+    "docs": "npx gulp docs",
+    "eb": "ssh -oStrictHostKeyChecking=no -i ./classroom_eb_og.pem ec2-user@classroomschedule.eba-36ckhwap.eu-central-1.elasticbeanstalk.com"
   }
 }
