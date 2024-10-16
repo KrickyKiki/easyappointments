@@ -32,3 +32,6 @@
 /metafile
 .DS_Store
 classroom_eb_og.pem
+eb.production.conf
+/aws
+config.production.php

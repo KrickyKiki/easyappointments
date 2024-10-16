@@ -1,5 +1,6 @@
 {
   "name": "easyappointments",
+  "version": "1.0.0",
   "description": "Open Source Web Scheduler",
   "homepage": "https://easyappointments.org",
   "author": "A.Tselegidis <alextselegidis@gmail.com>",
@@ -63,6 +64,7 @@
     "start": "npx gulp",
     "build": "npx gulp build",
     "docs": "npx gulp docs",
-    "eb": "ssh -oStrictHostKeyChecking=no -i ./classroom_eb_og.pem ec2-user@classroomschedule.eba-36ckhwap.eu-central-1.elasticbeanstalk.com"
+    "eb": "ssh -oStrictHostKeyChecking=no -i ./classroom_eb_og.pem ec2-user@classroomschedulev2.eba-36ckhwap.eu-central-1.elasticbeanstalk.com",
+    "deploy": "npx gulp build && ./scripts/deploy.sh"
   }
 }

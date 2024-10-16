@@ -22,6 +22,8 @@ $protocol =
         ? 'https://'
         : 'http://';
 
+$protocol = 'https://';
+
 $domain = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'] ?? 'localhost';
 
 $request_uri = dirname($_SERVER['SCRIPT_NAME']);
@@ -383,7 +385,7 @@ $config['cookie_secure'] = strpos($config['base_url'], 'https') !== false;
 | 'csrf_cookie_name' = The cookie name
 | 'csrf_expire' = The number in seconds the token should expire.
 */
-$config['csrf_protection'] = true;
+$config['csrf_protection'] = false;
 $config['csrf_token_name'] = 'csrf_token';
 $config['csrf_cookie_name'] = 'csrf_cookie';
 $config['csrf_expire'] = 7200;
